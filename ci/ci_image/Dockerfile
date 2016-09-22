@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install git zip unzip curl wget vagrant file zlib1
 # RUN /bin/bash -l -c "rvm use 2.2 --default"
 # RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
-RUN ruby --version
 RUN gem install nokogiri -v '1.6.8' --no-ri --no-rdoc
 RUN vagrant plugin install vagrant-aws
 

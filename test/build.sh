@@ -8,7 +8,9 @@ for file in *
 do
   if [ -x ${file}/run.sh ]; then
     echo "--- ${file} ---"
-    ${file}/run.sh
+    pushd ${file}
+    ./run.sh
+    popd
   fi
 done
 

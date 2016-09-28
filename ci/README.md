@@ -2,6 +2,6 @@
 
 
 ```
-fly -t oss set-pipeline -p $(basename $(pwd)) -c ci/pipeline.yml -l ci/credentials.yml
-fly -t oss unpause-pipeline -p $(basename $(pwd))
+fly -t ${fly_target} set-pipeline -p concourse-tutorial -c ci/pipeline.yml -l ci/credentials.yml
+fly -t ${fly_target} unpause-pipeline -p concourse-tutorial
 ```

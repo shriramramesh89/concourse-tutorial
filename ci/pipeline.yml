@@ -1,9 +1,4 @@
 ---
-groups:
-- name: image
-  jobs:
-  - build-task-image
-
 jobs:
 - name: build-task-image
   serial: true
@@ -19,11 +14,16 @@ jobs:
   - get: repo
     trigger: true
   - get: ciimage
+    passed: [build-task-image]
     trigger: true
   - task: check-out-bosh
     image: ciimage
-    run:
-      path: repo/ci/boo.sh
+    config:
+      platform: linux
+      inputs:
+        - { name: repo }
+      run:
+        path: repo/ci/bin/boo.sh
 
 resources:
 - name: repo

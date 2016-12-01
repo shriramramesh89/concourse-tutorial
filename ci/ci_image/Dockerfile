@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install git zip unzip curl wget vagrant file zlib1
 # RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
 
 RUN gem install nokogiri -v '1.6.8' --no-ri --no-rdoc
+RUN gem install bosh_cli --no-ri --no-rdoc
 RUN vagrant plugin install vagrant-aws
 
 ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /usr/bin/jq
@@ -25,5 +26,3 @@ RUN \
 ENV GOROOT /goroot
 ENV GOPATH /gopath
 ENV PATH $GOROOT/bin:$GOPATH/bin:$PATH
-
-RUN go get github.com/bronze1man/yaml2json

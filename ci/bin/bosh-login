@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
   source "$HOME/.rvm/scripts/rvm"
@@ -10,11 +10,11 @@ else
   printf "ERROR: An RVM installation was not found.\n"
 fi
 
-set -u
+set -ux
 
 which bosh
 
-bosh target ${bosh_target}
+bosh target ${bosh_director}
 set +x
 bosh login ${bosh_username} ${bosh_password}
 bosh status

@@ -25,12 +25,27 @@ jobs:
       run:
         path: repo/ci/bin/boo.sh
 
+- name: bosh-login
+  plan:
+  - get: repo-image
+    trigger: false
+  - task: bosh-login
+    image: ciimage
+    config:
+      platform: linux
+      run:
+        path: echo
+        args: [hello world]
+    params:
+      bosh-director: {{bosh-director}}
+      bosh-username: {{bosh-username}}
+      bosh-password: {{bosh-password}}
+
 resources:
-- name: repo
-  type: git
-  source:
-    uri: https://github.com/starkandwayne/concourse-tutorial.git
-    branch: set-up-ci
+# - name: repo
+#   type: git
+#   source:
+#     uri: https://github.com/starkandwayne/concourse-tutorial.git
 - name: repo-image
   type: git
   source:

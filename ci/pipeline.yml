@@ -28,7 +28,10 @@ jobs:
 - name: bosh-login
   plan:
   - get: repo-image
-    trigger: false
+    trigger: true
+  - get: ciimage
+    passed: [build-task-image]
+    trigger: true
   - task: bosh-login
     image: ciimage
     config:

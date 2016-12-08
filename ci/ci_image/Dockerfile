@@ -1,13 +1,15 @@
 FROM ubuntu:16.10
 
 RUN apt-get update && \
-  apt-get install git zip unzip curl wget zlib1g-dev libxml2 -y && \
+  apt-get install git zip unzip curl wget zlib1g-dev libxml2 -y dirmngr && \
   apt-get clean
 
 RUN ls -l $(which dirmngr)
 RUN ls -l $(which gpg)
 RUN dirmngr --version
 RUN gpg --version
+
+#dirmngr < /dev/null
 
 # RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 &&
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3

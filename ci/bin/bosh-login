@@ -12,7 +12,7 @@ fi
 
 which bosh
 
-bosh target ${bosh-target}
+bosh target ${bosh_target}
 set +x
-bosh login ${bosh-username} ${bosh-password}
+bosh login ${bosh_username} ${bosh_password}
 bosh status

@@ -40,12 +40,12 @@ jobs:
       inputs:
         - { name: repo }
       run:
+        dir: repo
         path: ci/bin/bosh-login
-        args: [hello world]
     params:
-      bosh-director: {{bosh-director}}
-      bosh-username: {{bosh-username}}
-      bosh-password: {{bosh-password}}
+      bosh_director: {{bosh-director}}
+      bosh_username: {{bosh-username}}
+      bosh_password: {{bosh-password}}
 
 resources:
 - name: repo

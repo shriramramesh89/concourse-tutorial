@@ -8,22 +8,22 @@ jobs:
   - put: ciimage
     params:
       build: repo-image/ci/ci_image
-- name: deploy-concourse
-  serial: true
-  plan:
-  - get: repo
-    trigger: true
-  - get: ciimage
-    passed: [build-task-image]
-    trigger: true
-  - task: check-out-bosh
-    image: ciimage
-    config:
-      platform: linux
-      inputs:
-        - { name: repo }
-      run:
-        path: repo/ci/bin/boo.sh
+# - name: deploy-concourse
+#   serial: true
+#   plan:
+#   - get: repo
+#     trigger: true
+#   - get: ciimage
+#     passed: [build-task-image]
+#     trigger: true
+#   - task: check-out-bosh
+#     image: ciimage
+#     config:
+#       platform: linux
+#       inputs:
+#         - { name: repo }
+#       run:
+#         path: repo/ci/bin/boo.sh
 
 - name: bosh-login
   plan:
@@ -58,4 +58,4 @@ resources:
     email: {{docker-hub-email}}
     username: {{docker-hub-username}}
     password: {{docker-hub-password}}
-    repository: starkandwayne/concourse-tutorial
+    repository: starkandwayne/concourse-tutorial-ci

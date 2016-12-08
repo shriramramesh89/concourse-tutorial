@@ -1,7 +1,7 @@
 FROM ubuntu:16.10
 
 RUN apt-get update && \
-  apt-get install git zip unzip curl wget zlib1g-dev libxml2 -y dirmngr && \
+  apt-get install -y git zip unzip curl wget zlib1g-dev libxml2 dirmngr && \
   apt-get clean
 
 RUN gpg --keyserver hkp://keys.gnupg.net \

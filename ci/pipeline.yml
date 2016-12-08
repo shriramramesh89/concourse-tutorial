@@ -27,17 +27,20 @@ jobs:
 
 - name: bosh-login
   plan:
-  - get: repo-image
-    trigger: true
-  - get: ciimage
-    passed: [build-task-image]
-    trigger: true
+  - aggregate:
+    - get: repo
+      trigger: true
+    - get: ciimage
+      passed: [build-task-image]
+      trigger: true
   - task: bosh-login
     image: ciimage
     config:
       platform: linux
+      inputs:
+        - { name: repo }
       run:
-        path: echo
+        path: ci/bin/bosh-login
         args: [hello world]
     params:
       bosh-director: {{bosh-director}}
@@ -45,10 +48,12 @@ jobs:
       bosh-password: {{bosh-password}}
 
 resources:
-# - name: repo
-#   type: git
-#   source:
-#     uri: https://github.com/starkandwayne/concourse-tutorial.git
+- name: repo
+  type: git
+  source:
+    uri: https://github.com/starkandwayne/concourse-tutorial.git
+    branch: set-up-ci
+    ignore_paths: [ci/ci_image/*]
 - name: repo-image
   type: git
   source:

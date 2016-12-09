@@ -2,7 +2,8 @@
 
 set -eux
 
-source ci/lib/shared-deploy-functions.sh
+pwd
+source ci/lib/shared-functions.sh
 
 ensure-rvm
 bosh-login

@@ -15,8 +15,5 @@ set -ux
 which bosh
 bosh version
 
-bosh --non-interactive target ${bosh_director}
-set +x
-bosh login
-set -x
+bosh -t ${bosh_director} login
 bosh status

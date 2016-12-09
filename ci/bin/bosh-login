@@ -15,7 +15,7 @@ set -ux
 which bosh
 bosh version
 
-env
-
-bosh -t ${bosh_director} login
+set +x
+bosh -t ${bosh_director} login ${bosh_username} ${bosh_password}
+set -x
 bosh status

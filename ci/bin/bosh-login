@@ -15,5 +15,7 @@ set -ux
 which bosh
 bosh version
 
+env
+
 bosh -t ${bosh_director} login
 bosh status

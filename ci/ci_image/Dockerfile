@@ -14,7 +14,3 @@ RUN /bin/bash -l -c "rvm use 2.2.4 --default"
 
 COPY gemrc /root/.gemrc
 RUN /bin/bash -l -c "rvm 2.2.4 do gem install bosh_cli -v 1.2968.0"
-
-RUN ruby version
-RUN rvm use 2.2.4
-RUN ruby version

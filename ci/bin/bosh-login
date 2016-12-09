@@ -18,4 +18,5 @@ bosh version
 set +x
 bosh -t ${bosh_director} login ${bosh_username} ${bosh_password}
 set -x
+bosh target ${bosh_director}
 bosh status

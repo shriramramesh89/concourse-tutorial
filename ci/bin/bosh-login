@@ -16,5 +16,7 @@ which bosh
 bosh version
 
 bosh target ${bosh_director}
-bosh login
+set +x
+bosh login ${bosh_username} ${bosh_password}
+set -x
 bosh status

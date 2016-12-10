@@ -13,6 +13,10 @@ function ensure-rvm {
   set -u
 }
 
+function ensure-fly {
+  announce-task "Making sure fly is installed..."
+}
+
 function bosh-login {
   announce-task "Logging-in to BOSH director..."
   which bosh
@@ -32,7 +36,7 @@ function deploy-concourse {
 
 function check-concourse {
   announce-task "Making sure Concourse is up..."
-  run-cmd fly target tutorial http://10.244.8.2:8080
-  fly login -t tutorial --username=concourse --password=concourse
+  run-cmd fly target tutorial http://10.244.8.3
+  run-cmd fly login -t tutorial
   run-cmd fly -t tutorial pipelines
 }

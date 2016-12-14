@@ -20,7 +20,7 @@ function ensure-fly {
     echo "Fly is in at `which fly`"
   else
     echo "Fly not found."
-    curl -L https://github.com/concourse/concourse/releases/download/v2.5.1/fly_linux_amd64 -o /usr/local/bin/fly
+    curl -L https://github.com/concourse/concourse/releases/download/v2.5.0/fly_linux_amd64 -o /usr/local/bin/fly
     chmod 755 /usr/local/bin/fly
   fi
 }

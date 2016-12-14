@@ -44,7 +44,6 @@ function deploy-concourse {
 
 function check-concourse {
   announce-task "Making sure Concourse is up..."
-  run-cmd fly target tutorial http://10.244.8.3
-  run-cmd fly login -t tutorial
+  run-cmd fly login -t tutorial -c http://10.244.8.3
   run-cmd fly -t tutorial pipelines
 }

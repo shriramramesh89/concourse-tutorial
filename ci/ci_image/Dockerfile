@@ -13,4 +13,4 @@ RUN /bin/bash -l -c "rvm install 2.2.4 && \
   rvm use 2.2.4 --default && \
   rvm 2.2.4 do gem install bosh_cli"
 
-#ADD https://github.com/concourse/concourse/releases/download/v2.5.0/fly_linux_amd64 /usr/local/bin/fly
+ADD https://github.com/concourse/concourse/releases/download/v2.5.1/fly_linux_amd64 /usr/local/bin/fly

@@ -24,7 +24,8 @@ jobs:
       inputs:
         - { name: repo }
       run:
-        path: repo/ci/bin/deploy-concourse
+        dir: repo
+        path: ci/bin/deploy-concourse
     params:
       bosh_director: {{bosh-director}}
       bosh_username: {{bosh-username}}

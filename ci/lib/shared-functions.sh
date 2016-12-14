@@ -15,6 +15,14 @@ function ensure-rvm {
 
 function ensure-fly {
   announce-task "Making sure fly is installed..."
+
+  if [[ $(type -P "fly") ]]; then
+    echo "Fly is in at `which fly`"
+  else
+    echo "Fly not found."
+    curl https://github.com/concourse/concourse/releases/download/v2.5.1/fly_linux_amd64 /usr/local/bin/fly
+    chmod 755 /usr/local/bin/fly
+  fi
 }
 
 function bosh-login {

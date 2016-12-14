@@ -8,6 +8,7 @@ source ci/lib/shared-functions.sh
 
 announce-started
 ensure-rvm
+ensure-fly
 bosh-login
 deploy-concourse
 check-concourse

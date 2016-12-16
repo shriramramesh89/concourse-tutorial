@@ -38,7 +38,7 @@ function bosh-login {
 
 function deploy-concourse {
   announce-task "Starting deployment..."
-  run-cmd bosh deployment ci/manifest.yml
+  run-cmd bosh deployment ci/manifest-vsphere-4.yml
   run-cmd bosh -n deploy
 }
 

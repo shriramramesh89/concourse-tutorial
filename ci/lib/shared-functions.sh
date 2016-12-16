@@ -3,9 +3,9 @@
 function ensure-rvm {
   announce-task "Making sure RVM is set up..."
   set +ux
-  if [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+  if [ -s "$HOME/.rvm/scripts/rvm" ] ; then
     run-cmd source "$HOME/.rvm/scripts/rvm"
-  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+  elif [ -s "/usr/local/rvm/scripts/rvm" ] ; then
     run-cmd source "/usr/local/rvm/scripts/rvm"
   else
     echo -e "${BRed}ERROR: ${Red}An RVM installation was not found.\n${RCol}"
@@ -16,8 +16,8 @@ function ensure-rvm {
 function ensure-fly {
   announce-task "Making sure fly is installed..."
 
-  if [[ $(type -P "fly") ]]; then
-    echo "Fly is in at `which fly`"
+  if [ -x $(type -P "fly") ]; then
+    echo "Fly is at `which fly`"
   else
     echo "Fly not found."
     curl -L https://github.com/concourse/concourse/releases/download/v2.5.0/fly_linux_amd64 -o /usr/local/bin/fly
